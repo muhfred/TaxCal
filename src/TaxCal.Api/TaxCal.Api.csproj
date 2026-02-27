@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TaxCal.Application\TaxCal.Application.csproj" />
+    <ProjectReference Include="..\TaxCal.Domain\TaxCal.Domain.csproj" />
+    <ProjectReference Include="..\TaxCal.Infrastructure\TaxCal.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="TaxCal.Api.Tests" />
+  </ItemGroup>
+
+</Project>
