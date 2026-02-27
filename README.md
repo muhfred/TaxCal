@@ -35,7 +35,7 @@ docker pull ghcr.io/muhfred/taxcal-api:latest
 docker run --rm -p 5132:8080 -p 5133:8081 ghcr.io/muhfred/taxcal-api:latest
 ```
 
-Then browse `http://localhost:5132` or `https://localhost:5133`. For Swagger when using the pulled image, run with `-e ASPNETCORE_ENVIRONMENT=Development` (or use Docker Compose below).
+Then browse `http://localhost:5132/swagger` or `https://localhost:5133/swagger`.
 
 **Build and run from source** (clone the repo first):
 
