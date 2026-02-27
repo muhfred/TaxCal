@@ -1,0 +1,6 @@
+services:
+  taxcal.api:
+    image: taxcalapi:local
+    build:
+      context: .
+      dockerfile: src/TaxCal.Api/Dockerfile

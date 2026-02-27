@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31903.59
+# Visual Studio Version 18
+VisualStudioVersion = 18.3.11520.95 d18.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E7373708-A0A5-4291-B1A4-AEA7E29B30C1}"
 EndProject
@@ -21,13 +21,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxCal.Application.Tests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxCal.Api.Tests", "tests\TaxCal.Api.Tests\TaxCal.Api.Tests.csproj", "{FCC4E697-5A59-411B-9AB3-CAEB610F6BBF}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C2732B25-6752-4B6E-AD64-F59151CEE52F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -58,6 +57,13 @@ Global
 		{FCC4E697-5A59-411B-9AB3-CAEB610F6BBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCC4E697-5A59-411B-9AB3-CAEB610F6BBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCC4E697-5A59-411B-9AB3-CAEB610F6BBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C2732B25-6752-4B6E-AD64-F59151CEE52F} = {E7373708-A0A5-4291-B1A4-AEA7E29B30C1}

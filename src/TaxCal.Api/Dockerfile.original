@@ -1,0 +1,38 @@
+# See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+# This stage is used when running from VS in fast mode (Default for Debug configuration)
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+USER $APP_UID
+WORKDIR /app
+
+# Container-friendly defaults
+ENV ASPNETCORE_URLS=http://+:8080
+
+EXPOSE 8080
+EXPOSE 8081
+
+
+# This stage is used to build the service project
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+ARG BUILD_CONFIGURATION=Release
+WORKDIR /src
+COPY ["src/TaxCal.Api/TaxCal.Api.csproj", "src/TaxCal.Api/"]
+COPY ["src/TaxCal.Application/TaxCal.Application.csproj", "src/TaxCal.Application/"]
+COPY ["src/TaxCal.Domain/TaxCal.Domain.csproj", "src/TaxCal.Domain/"]
+COPY ["src/TaxCal.Infrastructure/TaxCal.Infrastructure.csproj", "src/TaxCal.Infrastructure/"]
+RUN dotnet restore "./src/TaxCal.Api/TaxCal.Api.csproj"
+COPY . ./
+WORKDIR "/src/TaxCal.Api"
+RUN dotnet build "/src/TaxCal.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
+
+# This stage is used to publish the service project to be copied to the final stage
+FROM build AS publish
+ARG BUILD_CONFIGURATION=Release
+RUN dotnet publish "src/TaxCal.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+
+# This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
+FROM base AS final
+WORKDIR /app
+
+COPY --from=publish /app/publish ./
+ENTRYPOINT ["dotnet", "TaxCal.Api.dll"]
