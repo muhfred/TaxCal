@@ -4,7 +4,8 @@
 
 ### Docker
 
-## Option 1: **Run from GitHub Container Registry** (after the image is published by CI):
+## Option 1: **Run from GitHub Container Registry** 
+(after the image is published by CI):
 
 ```bash
 docker pull ghcr.io/muhfred/taxcal-api:latest
