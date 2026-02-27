@@ -32,16 +32,16 @@ Swagger opens at the URL from your selected launch profile (e.g. `http://localho
 
 ```bash
 docker pull ghcr.io/muhfred/taxcal-api:latest
-docker run --rm -p 5132:8080 -p 5133:8081 ghcr.io/muhfred/taxcal-api:latest
+docker run --rm -p 5132:8080 ghcr.io/muhfred/taxcal-api:latest
 ```
 
-Then browse `http://localhost:5132/swagger` or `https://localhost:5133/swagger`.
+Then browse `http://localhost:5132/swagger` (use HTTP only; HTTPS in the container is not configured for local runs).
 
 **Build and run from source** (clone the repo first):
 
 ```bash
 docker build -t taxcal-api:local -f src/TaxCal.Api/Dockerfile .
-docker run --rm -p 5132:8080 -p 5133:8081 taxcal-api:local
+docker run --rm -p 5132:8080 taxcal-api:local
 ```
 
 **Run with Docker Compose** (builds from source and uses Development env for Swagger):
